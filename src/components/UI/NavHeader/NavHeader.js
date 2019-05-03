@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavHeader.css";
-import { Link ,NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const navHeader = () => {
   return (
@@ -9,16 +9,19 @@ const navHeader = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to="/" exact
+              <NavLink
+                to="/posts"
+                exact
                 activeClassName="active"
-                activeStyle={{ color: "#fa923f", textDecoration: "underline" }}>Home</NavLink>
+                activeStyle={{ color: "#fa923f", textDecoration: "underline" }}
+              >
+                Posts
+              </NavLink>
             </li>
             <li>
               <Link
                 to={{
-                  pathname: "/new-post",
-                  hash: "#submit",
-                  search: "?quick-submit=true"
+                  pathname: "/new-post"
                 }}
               >
                 New Post

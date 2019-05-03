@@ -29,7 +29,7 @@ class Posts extends Component {
   }
 
   postSelectedHandler = receivedId => {
-    this.props.history.push("/" + receivedId);
+    this.props.history.push("/posts/" + receivedId);
   };
 
   render() {
@@ -46,13 +46,13 @@ class Posts extends Component {
           />
         );
       })
+      );
+
+    return this.state.error ? (
+      <p style={{ textAlign: "center" }}>Something went wrong!</p>
+    ) : (
+      <div className="Posts">{posts}</div>
     );
-
-    if (this.state.error) {
-      posts = <p style={{ textAlign: "center" }}>Something went wrong!</p>;
-    }
-
-    return <div className="Posts">{posts}</div>;
   }
 }
 

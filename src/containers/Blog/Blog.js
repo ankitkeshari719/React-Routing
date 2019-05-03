@@ -1,18 +1,20 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-import { Header } from "../../components";
-import { Posts, NewPost, FullPost} from "..";
+import { Header, Notfound } from "../../components";
+import { Posts, NewPost, FullPost } from "..";
 
 class Blog extends Component {
   render() {
     return (
       <div>
         <Header />
-        <Route path="/" exact component={Posts} />
         <Switch>
+          <Route path="/posts" exact component={Posts} />
           <Route path="/new-post" component={NewPost} />
-          <Route path="/:id" exact component={FullPost} />
+          <Route path="/posts/:id" component={FullPost} />
+          <Redirect from="/" exact to="posts" />
+          <Route component={Notfound} />
         </Switch>
       </div>
     );
